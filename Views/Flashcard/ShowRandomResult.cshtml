@@ -1,0 +1,61 @@
+@model CodingFlashcard.Models.Flashcard
+
+@{ ViewData["Title"] = "Show Random Result"; }
+
+<form asp-action="ShowRandom">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Question)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Answer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Timeseen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Known)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Difficulty)
+                </th>
+                <th>
+
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Question)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Answer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Timeseen)
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input asp-for="Known" class="form-control" />
+                        <span asp-validation-for="Known" class="text-danger"></span>
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Difficulty)
+                </td>
+                <td>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    @Html.Hidden("cardId", Model.Id, new { @id = "cardId" })
+    <input type="submit" value="Next" class="btn btn-primary">
+</form>

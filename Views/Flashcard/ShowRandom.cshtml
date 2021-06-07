@@ -1,0 +1,29 @@
+@model CodingFlashcard.Models.Flashcard
+
+@{ ViewData["Title"] = "Show Random"; }
+
+
+<form asp-action="ShowRandomResult">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Question)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+       
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Question)
+        </td>
+        <td>
+            @Html.Hidden("cardId", Model.Id, new { @id = "cardId" })
+            <input type="submit" value="Answer" class="btn btn-primary">
+        </td>
+    </tr>
+        </tbody>
+    </table>
+</form>
